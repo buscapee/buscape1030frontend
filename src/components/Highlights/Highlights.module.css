@@ -1,0 +1,125 @@
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title span {
+    margin-right: 10px ;
+
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: center;
+    justify-items: center;
+}
+
+@media (max-width: 600px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    display: flex;
+    width: 120px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card h3 {
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+.cardsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 4px;
+}
+
+.cardList {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 10px 14px;
+    min-width: 140px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    width: 98%;
+    max-width: 320px;
+    transition: box-shadow 0.2s, background 0.2s;
+    margin: 0 auto 10px auto;
+    border: 1.2px solid #ececec;
+}
+
+.cardList:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+    background: #f3f6fa;
+}
+
+.cardList img, .imgHighlightHead {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+    border-radius: 8px;
+}
+
+.cardList h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #031149;
+    margin: 0;
+    text-align: left;
+    letter-spacing: 0.2px;
+}
+
+.Link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .cardList {
+        min-width: 120px;
+        max-width: 100%;
+        padding: 10px 6px;
+    }
+    .cardList img {
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+    }
+    .cardList h3 {
+        font-size: 15px;
+    }
+}
+
+.imgHighlightHead {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 12px;
+    margin-right: 22px;
+    background: #eaeaea;
+    flex-shrink: 0;
+    border: 1.5px solid #e0e0e0;
+    display: block;
+}
+
+

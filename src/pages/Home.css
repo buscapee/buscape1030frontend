@@ -1,0 +1,72 @@
+.body {
+    padding: 1em 2em;
+    position: relative;
+    top: 61px;
+    width: 100%;
+    height:auto;
+    background-color: #eeeeeeda;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+.one,
+.two,
+.try {
+    min-height: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.one {
+    width: 20%;;
+
+}
+
+.two {
+    width: 39%;
+  
+}
+
+.try {
+    width: 33%;
+ 
+}
+
+.try h1 {
+    color: #031149;
+    width: 100%;
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+
+}
+
+@media (max-width: 1000px) {
+    .body {
+        flex-direction: column;
+    }
+
+    .one {
+        width: 100%;;
+    
+    }
+    
+    .two {
+        width: 100%;
+      
+    }
+    
+    .try {
+        width: 100%;
+     
+    }
+
+
+}

@@ -1,0 +1,145 @@
+.ListMembers {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 32px;
+}
+
+.PatentGroups {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.PatentBlock {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 24px 16px 16px 16px;
+    margin-bottom: 0;
+}
+
+.PatentTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #031149;
+    margin-bottom: 16px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.CardUser {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.CardUser li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 12px 16px;
+    min-width: 120px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    transition: box-shadow 0.2s;
+    max-width: 140px;
+}
+
+.CardUser li:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.CardUser img {
+    width: 60px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.CardUser a {
+    text-decoration: none;
+    color: #031149;
+    font-weight: 600;
+    font-size: 11px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 4px;
+    word-break: break-word;
+    max-width: 120px;
+    overflow: visible;
+    padding: 0 2px;
+}
+
+.CardUser a span, .CardUser a div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.NoUser {
+    color: #888;
+    font-size: 14px;
+    font-style: italic;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+@media (max-width: 700px) {
+    .PatentGroups {
+        max-width: 100%;
+        padding: 0 4px;
+    }
+    .PatentBlock {
+        padding: 16px 4px 8px 4px;
+    }
+    .CardUser {
+        gap: 12px;
+    }
+    .CardUser li {
+        min-width: 90px;
+        padding: 8px 6px;
+    }
+    .CardUser img {
+        width: 40px;
+        height: 54px;
+    }
+}
+
+.ListMembers label {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    flex-direction: column;
+    text-align: left;
+    align-items: center;
+    font-size: 15px;
+    border-bottom: 1px solid #ccc; 
+}
+
+.ListMembers select {
+    position: relative; 
+    width: 350px;
+    z-index: 0;
+}
+
+.ListMembers select option{
+    position: relative; 
+    z-index: 0 !important;
+}

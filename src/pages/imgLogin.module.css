@@ -1,0 +1,43 @@
+.ImgLogin {
+    background-image: url("../assets/Print-da-Base.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ImgLogin::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.25);
+    z-index: 0;
+}
+
+.btn-login-dop,
+.btn-ativar-dop,
+.btn-voltar-dop {
+  border-color: #000 !important;
+}
+
+.btn-login-dop:active,
+.btn-login-dop.btn-primary:active,
+.btn-ativar-dop:active,
+.btn-ativar-dop.btn-primary:active,
+.btn-voltar-dop:active,
+.btn-voltar-dop.btn-outline-primary:active {
+  background: #0b2915 !important;
+  border-color: #000 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}

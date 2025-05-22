@@ -1,0 +1,131 @@
+.QuickSearch {
+
+}
+
+.QuickSearch input {
+    height: 35px;
+    
+}
+
+.QuickSearchInfo {
+    width: 100%;
+    padding-bottom: 10px;
+
+}
+
+.info p:nth-child(1) {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.info a {
+    border: none;
+    width: auto;
+    color: #858585;
+
+}
+
+.QuickSearchInput {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.QuickSearchInput input {
+    width: 90%;
+    padding-left: 10px ;
+}
+
+.QuickSearchInput input::placeholder {
+    padding-left: 10px;
+
+}
+
+.QuickSearchInput button {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.QuickSearchInput svg {
+    font-size: 22px;
+
+}
+
+.img {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    min-width: 90px;
+    background-image: url("../../assets/fundo.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: solid 1px #a1a1a1;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 100px;
+    justify-content: center;
+
+}
+
+.img img {
+    width: 90px;
+    z-index: 4;
+    position: absolute;
+}
+
+.QuickSearchInfoBody {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+    padding: 20px;
+}
+
+.QuickSearchInfoBody p {
+    font-size: 13px;
+
+}
+
+.QuickSearchInfoBody span {
+    font-weight: bold;
+
+}
+
+.info {
+    margin: 10px;
+    margin-left: 20px;
+
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header img {
+    width: 40px;
+}
+
+.header h4 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    color: #031149;
+}
+
+.header div {
+    margin-left: 10px;
+
+}
