@@ -28,7 +28,8 @@ const FormReqGratification = ({ requerimentSelected }) => {
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
-        setOperator(JSON.parse(localStorage.getItem("@Auth:Profile")));
+        const user = JSON.parse(localStorage.getItem("@Auth:Profile"));
+        setOperator(user);
         if (requerimentSelected) {
             setForm({
                 operator: requerimentSelected.operator || '',
@@ -40,7 +41,7 @@ const FormReqGratification = ({ requerimentSelected }) => {
             setStatus(requerimentSelected.status || '');
             setCrhAnalysis(requerimentSelected.crhAnalysis || '');
         } else {
-            setForm({ operator: '', gratified: '', amount: '', reason: '' });
+            setForm({ operator: user?.nickname || '', gratified: '', amount: '', reason: '' });
             setCreatedAt('');
             setStatus('');
             setCrhAnalysis('');
@@ -274,7 +275,7 @@ const FormReqGratification = ({ requerimentSelected }) => {
                 <div className="flex flex-col gap-4 px-6 py-6">
                     <div className="flex flex-col gap-2">
                         <label className="font-semibold">* Aplicador:</label>
-                        <input type="text" name="operator" value={form.operator} onChange={handleChange} className="border rounded px-3 py-2 bg-white" placeholder="Digite o nick do aplicador" required />
+                        <input type="text" name="operator" value={form.operator} disabled className="border rounded px-3 py-2 bg-gray-100" placeholder="Digite o nick do aplicador" required />
                     </div>
                     <div className="flex flex-col gap-2">
                         <label className="font-semibold">* Gratificado:</label>
