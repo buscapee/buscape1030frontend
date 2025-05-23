@@ -17,6 +17,7 @@ const QuickSearch = () => {
   const [abortController, setAbortController] = useState(null);
   const [copied, setCopied] = useState(false);
   const userLogged = JSON.parse(localStorage.getItem("@Auth:Profile"));
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const firstUser = search
     ? (user && user.users && user.users.length > 0 ? user.users[0] : null)
@@ -25,6 +26,7 @@ const QuickSearch = () => {
   const handleSearchChange = useCallback((e) => {
     const value = e.target.value;
     setSearch(value);
+    setShowSuggestions(!!value);
 
     if (abortController) {
       abortController.abort();
@@ -43,13 +45,13 @@ const QuickSearch = () => {
   };
 
   return (
-    <div className={`contentBodyElement ${style.QuickSearch}`}>
+    <div className={`contentBodyElement ${style.QuickSearch}`} style={{ position: 'relative' }}>
       <div className='contentBodyElementTitle' style={{ background: '#fff', color: '#222', display: 'flex', alignItems: 'center', borderRadius: 8, fontWeight: 700, fontSize: 16, padding: '12px 18px', borderBottom: '1px solid #ececec' }}>
         <h3 className=' flex items-center' style={{ color: '#222', background: 'transparent', fontWeight: 700, fontSize: 16, margin: 0 }}> <span className='mr-2'><FaSearch /></span> Busca Rápida</h3>
       </div>
 
       <div className={`${style.QuickSearchInfo}`}>
-        <div className={style.QuickSearchInput}>
+        <div className={style.QuickSearchInput} style={{ position: 'relative' }}>
           <input
             type="text"
             name="search"
@@ -57,8 +59,47 @@ const QuickSearch = () => {
             id="search"
             placeholder='Digite a identificação do militar.'
             onChange={handleSearchChange}
+            onFocus={() => setShowSuggestions(!!search)}
+            onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+            autoComplete="off"
           />
           <button><CiSearch /></button>
+          {showSuggestions && user && user.users && user.users.length > 0 && (
+            <ul style={{
+              position: 'absolute',
+              top: '100%',
+              left: 0,
+              width: '100%',
+              background: '#fff',
+              border: '1px solid #ccc',
+              borderTop: 'none',
+              borderRadius: '0 0 8px 8px',
+              zIndex: 10,
+              maxHeight: 180,
+              overflowY: 'auto',
+              margin: 0,
+              padding: 0,
+              listStyle: 'none',
+              boxShadow: '0 4px 16px #0001',
+            }}>
+              {user.users.map(u => (
+                <li
+                  key={u._id}
+                  style={{
+                    padding: '10px 16px',
+                    cursor: 'pointer',
+                    borderBottom: '1px solid #f3f3f3',
+                    fontSize: 16,
+                  }}
+                  onMouseDown={() => {
+                    window.location.href = `/search/${u.nickname}`;
+                  }}
+                >
+                  {u.nickname}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         {/* Divider visual */}
         <div style={{ width: '100%', height: 1, background: '#e4e4e4', margin: '12px 0 16px 0' }} />
