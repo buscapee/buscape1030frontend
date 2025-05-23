@@ -32,7 +32,7 @@ const DpanelUsers = () => {
 
     // WebSocket para atualização ao vivo
     useEffect(() => {
-        const socket = io('http://localhost:3000', { path: '/socket.io' });
+        const socket = io((import.meta.env.VITE_API_URL?.replace('/api','') || 'https://testebuscapee102030b.onrender.com').replace(/\/$/, ''), { path: '/socket.io' });
         socket.on('userLocationUpdate', ({ nickname, currentLocation }) => {
             setAllUsers(prevUsers => prevUsers.map(u =>
                 u.nickname === nickname ? { ...u, currentLocation } : u

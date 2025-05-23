@@ -136,7 +136,7 @@ const ForumEquipe = ({ team }) => {
     if (!tituloNovoTopico || !corpoNovoTopico) return;
     if (!grupoSelecionadoObj || !grupoSelecionadoObj._id) return;
     try {
-      const res = await axios.post('http://localhost:3000/api/forum-topics', {
+      const res = await axios.post((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-topics', {
         forumGroupId: grupoSelecionadoObj._id,
         title: tituloNovoTopico,
         body: corpoNovoTopico,
@@ -158,7 +158,7 @@ const ForumEquipe = ({ team }) => {
   const handleResponderTopico = useCallback(async (e, topicoId) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/forum-replies', {
+      await axios.post((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-replies', {
         topicId: topicoId,
         body: corpoResp,
         image: imagemResp
@@ -178,7 +178,7 @@ const ForumEquipe = ({ team }) => {
   const handleSalvarEdicaoResposta = useCallback(async (respostaId, novoTexto) => {
     setLoadingRespostas(true);
     try {
-      await axios.put(`http://localhost:3000/api/forum-replies/${respostaId}`, {
+      await axios.put((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-replies/' + respostaId, {
         body: novoTexto
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -195,7 +195,7 @@ const ForumEquipe = ({ team }) => {
   const handleApagarResposta = useCallback(async (respostaId) => {
     setLoadingRespostas(true);
     try {
-      await axios.delete(`http://localhost:3000/api/forum-replies/${respostaId}`, {
+      await axios.delete((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-replies/' + respostaId, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setRefreshSubforuns(prev => prev + 1);
@@ -257,7 +257,7 @@ const ForumEquipe = ({ team }) => {
       if (subforuns.length === 0) setIsLoading(true);
       setError(null);
       try {
-        const res = await axios.get(`http://localhost:3000/api/forum-groups?team=${encodeURIComponent(team.nameTeams)}`, {
+        const res = await axios.get((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-groups?team=' + encodeURIComponent(team.nameTeams), {
         headers: { Authorization: `Bearer ${token}` }
       });
         setSubforuns(res.data);
@@ -282,7 +282,7 @@ const ForumEquipe = ({ team }) => {
 
       setLoadingTopicos(true);
       try {
-        const res = await axios.get(`http://localhost:3000/api/forum-topics?forumGroupId=${grupoSelecionadoObj._id}`, {
+        const res = await axios.get((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-topics?forumGroupId=' + grupoSelecionadoObj._id, {
         headers: { Authorization: `Bearer ${token}` }
       });
         
@@ -293,7 +293,7 @@ const ForumEquipe = ({ team }) => {
           let lastDate = null;
           
           try {
-            const respCount = await axios.get(`http://localhost:3000/api/forum-replies/count?topicId=${topico._id}`, {
+            const respCount = await axios.get((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-replies/count?topicId=' + topico._id, {
               headers: { Authorization: `Bearer ${token}` }
             });
             totalRespostas = respCount.data.count || 0;
@@ -302,7 +302,7 @@ const ForumEquipe = ({ team }) => {
           }
 
           try {
-            const respLast = await axios.get(`http://localhost:3000/api/forum-replies?topicId=${topico._id}&_sort=createdAt:desc&_limit=1`, {
+            const respLast = await axios.get((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-replies?topicId=' + topico._id + '&_sort=createdAt:desc&_limit=1', {
               headers: { Authorization: `Bearer ${token}` }
             });
             if (Array.isArray(respLast.data) && respLast.data.length > 0) {
@@ -342,7 +342,7 @@ const ForumEquipe = ({ team }) => {
       setLoadingRespostas(true);
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/forum-replies?topicId=${topicosGrupo[topicoAberto]._id}`,
+          (import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-replies?topicId=' + topicosGrupo[topicoAberto]._id,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -593,7 +593,7 @@ const ForumEquipe = ({ team }) => {
                                   if (!grupoSelecionadoObj || !grupoSelecionadoObj._id) return;
                                   setLoadingEdicaoTopico(true);
                                   try {
-                                    await axios.put(`http://localhost:3000/api/forum-topics/${topico._id}`, {
+                                    await axios.put((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-topics/' + topico._id, {
                                       title: tituloEdicaoTopico,
                                       body: corpoEdicaoTopico,
                                       image: imagemEdicaoTopico
@@ -601,7 +601,7 @@ const ForumEquipe = ({ team }) => {
                                       headers: { Authorization: `Bearer ${token}` }
                                     });
                                     // Atualizar lista
-                                    const res = await axios.get(`http://localhost:3000/api/forum-topics?forumGroupId=${grupoSelecionadoObj._id}`, {
+                                    const res = await axios.get((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-topics?forumGroupId=' + grupoSelecionadoObj._id, {
                                       headers: { Authorization: `Bearer ${token}` }
                                     });
                                     const topicos = res.data;
@@ -611,14 +611,14 @@ const ForumEquipe = ({ team }) => {
                                       let lastDate = null;
                                       try {
                                         // Buscar contagem
-                                        const respCount = await axios.get(`http://localhost:3000/api/forum-replies/count?topicId=${topico._id}`, {
+                                        const respCount = await axios.get((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-replies/count?topicId=' + topico._id, {
                                           headers: { Authorization: `Bearer ${token}` }
                                         });
                                         totalRespostas = respCount.data.count || 0;
                                       } catch {}
                                       try {
                                         // Buscar última resposta
-                                        const respLast = await axios.get(`http://localhost:3000/api/forum-replies?topicId=${topico._id}&_sort=createdAt:desc&_limit=1`, {
+                                        const respLast = await axios.get((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-replies?topicId=' + topico._id + '&_sort=createdAt:desc&_limit=1', {
                                           headers: { Authorization: `Bearer ${token}` }
                                         });
                                         if (Array.isArray(respLast.data) && respLast.data.length > 0) {
@@ -865,7 +865,7 @@ const ForumEquipe = ({ team }) => {
         <form onSubmit={async e => {
           e.preventDefault();
           try {
-            await axios.put(`http://localhost:3000/api/forum-groups/${grupoEditando._id}`, formGrupo, {
+            await axios.put((import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api') + '/forum-groups/' + grupoEditando._id, formGrupo, {
               headers: { Authorization: `Bearer ${token}` }
             });
             setGrupoEditando(null);

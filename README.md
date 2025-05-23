@@ -52,6 +52,15 @@ Após você deverá instalar os pacotes usando o comando: `npm install` (Aqui us
 3 - Inicialização do projeto: 
 Em seu terminal use o comando `npm run dev` para iniciar o projeto.
 
+4 - Configuração em produção (Vercel):
+Se for hospedar o frontend na Vercel, adicione a variável de ambiente `VITE_API_URL` nas configurações do projeto, apontando para a URL da sua API no Render, por exemplo:
+
+```
+VITE_API_URL=https://testebuscapee102030b.onrender.com/api
+```
+
+Isso garante que o frontend se comunique corretamente com o backend em produção.
+
 Este projeto é dependente de uma API. Recomendamos o uso da API do próprio projeto para testes:
 
 ## Repositório da API

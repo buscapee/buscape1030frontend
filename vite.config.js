@@ -23,3 +23,5 @@ export default defineConfig({
     }
   }
 });
+
+// ATENÇÃO: O proxy abaixo só funciona em desenvolvimento local. Em produção, use VITE_API_URL corretamente configurada.

@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-const PRD = 'http://localhost:3000/api/';
+const PRD = import.meta.env.VITE_API_URL || 'https://testebuscapee102030b.onrender.com/api/';
 const AuthContext = createContext('');
 const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
