@@ -5,6 +5,7 @@ import { SystemContext } from '../../context/SystemContext';
 import { UserContext } from '../../context/UserContext';
 import { FaList, FaThLarge } from 'react-icons/fa';
 import { RequirementsContext } from '../../context/Requirements';
+import _ from 'lodash';
 
 const ListMembers = ({ infoSystem, select }) => {
     const { getAll } = useContext(UserContext);
