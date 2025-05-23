@@ -309,7 +309,7 @@ const FormPermission = ({ requerimentSelected }) => {
             <input type="text" value={promoted} onChange={e => setPromoted(e.target.value)} required placeholder="Digite o nick do policial promovido" className="border rounded px-3 py-2 bg-white" />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="font-semibold">Observação <span className="text-red-500">*</span>:</label>
+            <label className="font-semibold">Observação:</label>
             <textarea value={observation} onChange={e => setObservation(e.target.value)} required placeholder="Digite a sua observação" className="border rounded px-3 py-2 min-h-[100px] bg-gray-100" />
           </div>
         </div>

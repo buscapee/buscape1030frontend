@@ -324,7 +324,7 @@ const FormExoneration = ({ requerimentSelected }) => {
                 <div className="rounded-t bg-[#14532d] px-6 py-3 text-white font-bold text-lg border-b border-green-900">Efetuar Exoneração</div>
                 <div className="flex flex-col gap-4 px-6 py-6">
                     <div className="flex flex-col gap-2">
-                        <label className="font-semibold">* Exonerado:</label>
+                        <label className="font-semibold">Exonerado:</label>
                         <input type="text"
                             className="border rounded px-3 py-2 bg-white"
                             value={envolvido}
@@ -334,7 +334,7 @@ const FormExoneration = ({ requerimentSelected }) => {
                         />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <label className="font-semibold">* Motivo:</label>
+                        <label className="font-semibold">Motivo:</label>
                         <textarea
                             className="border rounded px-3 py-2 min-h-[100px]"
                             value={reason}

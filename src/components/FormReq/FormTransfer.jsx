@@ -172,7 +172,7 @@ const FormTransfer = ({ requerimentSelected }) => {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="font-semibold">Nick do Envolvido *</label>
+            <label className="font-semibold">Nick do Envolvido</label>
             <input
               type="text"
               className="border rounded px-3 py-2 bg-white"

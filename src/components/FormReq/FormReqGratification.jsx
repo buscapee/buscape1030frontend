@@ -274,19 +274,19 @@ const FormReqGratification = ({ requerimentSelected }) => {
                 <div className="rounded-t bg-[#14532d] px-6 py-3 text-white font-bold text-lg border-b border-green-900">Efetuar Gratificação</div>
                 <div className="flex flex-col gap-4 px-6 py-6">
                     <div className="flex flex-col gap-2">
-                        <label className="font-semibold">* Aplicador:</label>
+                        <label className="font-semibold">Aplicador:</label>
                         <input type="text" name="operator" value={form.operator} disabled className="border rounded px-3 py-2 bg-gray-100" placeholder="Digite o nick do aplicador" required />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <label className="font-semibold">* Gratificado:</label>
+                        <label className="font-semibold">Gratificado:</label>
                         <input type="text" name="gratified" value={form.gratified} onChange={handleChange} className="border rounded px-3 py-2 bg-white" placeholder="Digite o nick do gratificado" required />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <label className="font-semibold">* Quantidade:</label>
+                        <label className="font-semibold">Quantidade:</label>
                         <input type="number" name="amount" value={form.amount} onChange={handleChange} className="border rounded px-3 py-2 bg-white" placeholder="Digite a quantidade de gratificação" required min="-500" max="50" />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <label className="font-semibold">* Motivo:</label>
+                        <label className="font-semibold">Motivo:</label>
                         <textarea name="reason" value={form.reason} onChange={handleChange} className="border rounded px-3 py-2 min-h-[100px]" placeholder="Digite o motivo da gratificação" required />
                     </div>
                 </div>
