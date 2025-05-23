@@ -156,6 +156,13 @@ const ServicePointPage = () => {
     return Math.floor(diff / 60000);
   };
 
+  // Função utilitária para formatar minutos em 'X hora(s) e YY minutos'
+  function formatarTempoHorasMinutos(minutos) {
+    const horas = Math.floor(minutos / 60);
+    const min = minutos % 60;
+    return `${horas} hora${horas !== 1 ? 's' : ''} e ${min.toString().padStart(2, '0')} minutos`;
+  }
+
   const isAdmin = userType?.userType === 'Admin';
 
   return (
@@ -172,7 +179,9 @@ const ServicePointPage = () => {
             <div style={{ fontWeight: 600, fontSize: 22, color: '#222', marginBottom: 2 }}>{user?.nickname}</div>
             {turnoAberto && (
               <div style={{ fontSize: 15, color: '#888', marginBottom: 0 }}>
-                {getTempo(turnoAberto.setores?.[turnoAberto.setores.length-1]?.inicio) === 0 ? 'Agora' : `${getTempo(turnoAberto.setores?.[turnoAberto.setores.length-1]?.inicio)} minuto${getTempo(turnoAberto.setores?.[turnoAberto.setores.length-1]?.inicio) > 1 ? 's' : ''}`}
+                {getTempo(turnoAberto.setores?.[turnoAberto.setores.length-1]?.inicio) === 0
+                  ? 'Agora'
+                  : formatarTempoHorasMinutos(getTempo(turnoAberto.setores?.[turnoAberto.setores.length-1]?.inicio))}
               </div>
             )}
           </div>
@@ -338,7 +347,7 @@ const ServicePointPage = () => {
                   turnos.filter(t => t.aberto).map((turno, idx) => (
                     <tr key={idx}>
                       <td style={{ padding: '8px 12px' }}>{turno.nickname}</td>
-                      <td style={{ padding: '8px 12px' }}>{getTempo(turno.inicio)} minutos</td>
+                      <td style={{ padding: '8px 12px' }}>{formatarTempoHorasMinutos(getTempo(turno.inicio))}</td>
                       <td style={{ padding: '8px 12px' }}>{turno.setor}</td>
                       {isAdmin && (
                         <td style={{ padding: '8px 12px', textAlign: 'center', position: 'relative' }}>
